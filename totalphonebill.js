@@ -1,4 +1,3 @@
-
 function totalPhoneBill(bill) {
     let total = 0
        const phoneBill = bill.split(', ')
@@ -18,22 +17,4 @@ function totalPhoneBill(bill) {
        return 'R'+total.toFixed(2);
    }
    
-
-   document.addEventListener('alpine:init', () => {
-
-    Alpine.data('totalPhoneBillWidget', function () {
-
-        return {
-            statement: '',
-            billMessage: '',
-            calculateBill() {
-                this.billMessage = totalPhoneBill(this.statement);
-
-                setTimeout(() => {
-                    this.billMessage = '',
-                        this.statement = ''
-                }, 3000);
-            }
-        }
-    });
-})
+   

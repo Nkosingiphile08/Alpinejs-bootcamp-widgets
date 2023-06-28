@@ -1,5 +1,5 @@
 body {
-    background-color: ghostwhite;
+    background-color: grey;
     color: blue;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -54,3 +54,10 @@ body {
 .widgets-2 {
     display: flex;
 }
+
+@media (max-width: 768px) {
+    .mobile-style {
+      /* Styles for mobile devices */
+    }
+  }
+  
