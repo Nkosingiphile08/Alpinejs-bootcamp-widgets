@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>AlpineJS Bootcamp Widget</title>
+    <script src="greet.js"></script>
+    <script src="transport-fee.js"></script>
+    <script src="enough-airtime.js"></script>
+    <script src="totalphonebill.js"></script>
+    <script src="word-game.js"></script>
+    <script src="expensive-items.js"></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+</head>
+
+<body>
+    <h1>Bootcamp function widgets</h1>
+    <h2>Greet Me</h2>
+    <div class="message" x-data="{ name: '', greeting: '' }">
+        <label for="name">Greet this name</label>
+        <input type="text" x-model="name" placeholder="Enter your name">
+        <button x-on:click="greeting = greet(name)">Greet</button>
+        <p x-text="greeting"></p>
+        <button x-on:click="greeting = ''">Clear</button>
+      </div>
+      <br>
+      <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>AlpineJS Bootcamp Widget</title>
+    <script src="greet.js"></script>
+    <script src="greet-widget.js"></script>
+    <script src="enough-airtime.js"></script>
+    <script src="enough-airtime-widget.js"></script>
+    <script src="totalphonebill.js"></script>
+    <script src="totalphonebill-widget.js"></script>
+    <script src="word-game.js"></script>
+    <script src="word-game-widget.js"></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script>console.log(greet("Nkosingiphile"))</script>
+</head>
+
+<body>
+    <h1>Bootcamp function widgets</h1>
+    <div class="blocks"></div>
+    <h2>Greet Me</h2>
+    <div class="message block" x-data="{ name: '', greeting: '' }">
+        <label for="name">Greet this name</label>
+        <input type="text" x-model="name" placeholder="Enter your name">
+        <button x-on:click="greeting = greet(name)">Greet</button>
+        <p x-text="greeting"></p>
+        <button x-on:click="greeting = ''">Clear</button>
+      </div>
+      <br>
+    <div class="widget" x-data="enoughArtimeWidget"></div>
+
+    <h2>Enough Airtime</h2>
+
+    <div class="input">
+        <label for="usage">Airtime usage:</label>
+        <input type="text" x-model="airtimeUsage" id="usage">
+    </div>
+    <div class="input">
+        <label for="amount">Amount available:</label>
+        <input type="text" x-model="availableAirtime" id="amount">
+    </div>
+    <div x-show="airtimeMessage.length> 0" class="message" x-text="airtimeMessage"></div>
+    <div>
+        <button x-on:click="calculate()">Calculate airtime usage</button>
+    </div>
+    </div>..
+
+    <div class="widgets-2">
+        <div class="widget" x-data="totalPhoneBillWidget">
+
+            <h2>Total phone Bill</h2>
+            <div class="input">
+                <label for="bill">Phone usage:</label>
+                <input type="text" x-model="statement" id="bill">
+            </div>
+        </div>
+        <div>
+            <button x-on:click="calculateBill">Calculate total bill</button>
+
+            <div x-show="billMessage.length > 0" class="message" x-text="billMessage">
+            </div>
+        </div>
+    </div>...
+    <div class="widget" x-data="wordGameWidget">
+        <h2>Word game Widget</h2>
+        <div>
+            <label for="words">Sentence:</label>
+            <input type="text" x-model="sentence" id="words">
+        </div>
+        </div>
+
+        <div>
+            <button x-on:click="solve()">Solve</button>
+        </div>
+
+        <div x-show="longWord.length > 0" class="message" x-text="longWord">Longest word...
+        </div>
+        <div x-show="shortWord.length > 0" class="message" x-text="shortWord.length > 0" class="message" x-text="shortWord">Shortest word
+    </div>
+    
+    <div x-show="sumofLetters.length > 0" class="message" x-text="sumofLetters">Sum of letters</div>
+
+</body>
+
+</html>
+    
+</body>
+
+</html>
