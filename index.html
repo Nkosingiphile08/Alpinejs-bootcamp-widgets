@@ -19,24 +19,24 @@
 
 <body>
 
-  <h1>My first experience with bootcamp function Widgets</h1>
+  <h1>AlpineJS widgets for Bootcamp functions</h1>
 
-    <div class="blocks">
-      <div class="widget" x-data="{ isMobile: false }" x-bind:class="{ 'mobile-style': isMobile }">
-        <h2>Greet Me</h2>
-        <div class="widget block" x-data="{ name: '', greeting: '' }">
-          <label for="name">Greet this name</label>
-          <input type="text" x-model="name" placeholder="Enter your name">
-          <button x-on:click="greeting = greet(name)">Greet</button>
-          <p class="message" x-text="greeting"></p>
-          <button x-on:click="greeting = ''">Clear</button>
-        </div>
+  <div class="blocks">
+    <div class="widget" x-data="">
+      <h2>Greet Me</h2>
+      <div class="widget block" x-data="{ name: '', greeting: '' }">
+        <label for="name">Greet this name</label>
+        <input type="text" x-model="name" placeholder="Enter your name">
+        <button x-on:click="greeting = greet(name)">Greet</button>
+        <p class="message" x-text="greeting"></p>
+        <button x-on:click="greeting = ''">Clear</button>
       </div>
+    </div>
 
-      <div class="widget block" x-data="wordGameWidget">
-        <h2>Word game Widget</h2>
+    <div class="widget block" x-data="wordGameWidget">
+      <h2>Word game Widget</h2>
 
-        <div class="widget" x-data="{
+      <div class="widget" x-data="{
                         sentence: '',
                         longWord: '',
                         shortWord: '',
@@ -62,24 +62,24 @@
                           this.sumOfLetters = 'Sum of letters: ' + totalLetters;
                         }
                       }">
-          <div>
-            <label for="words">Sentence: </label>
-            <input type="text" x-model="sentence" id="words">
-          </div>
-
-          <div>
-            <button x-on:click="solve()">Solve</button>
-          </div>
-
-          <div x-show="longWord.length > 0" class="message" x-text="longWord">Longest word...</div>
-          <div x-show="shortWord.length > 0" class="message" x-text="shortWord">Shortest word...</div>
-          <div x-show="sumOfLetters.length > 0" class="message" x-text="sumOfLetters">Sum of letters...</div>
+        <div>
+          <label for="words">Sentence: </label>
+          <input type="text" x-model="sentence" id="words">
         </div>
 
+        <div>
+          <button x-on:click="solve()">Solve</button>
+        </div>
+
+        <div x-show="longWord.length > 0" class="message" x-text="longWord">Longest word...</div>
+        <div x-show="shortWord.length > 0" class="message" x-text="shortWord">Shortest word...</div>
+        <div x-show="sumOfLetters.length > 0" class="message" x-text="sumOfLetters">Sum of letters...</div>
       </div>
+
     </div>
-    <br>
-    <div class="blocks">
+  </div>
+  <br>
+  <div class="blocks">
     <div class="widget">
       <h2>Enough Airtime</h2>
       <div class="widget" x-data="{
@@ -107,7 +107,7 @@
         <button onclick="totalPhoneBill()">Enter</button>
         <br>
         <br>
-        <div class="message"id="totalBill"></div>
+        <div class="message" id="totalBill"></div>
       </div>
     </div>
   </div>

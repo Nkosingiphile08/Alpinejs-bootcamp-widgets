@@ -4,23 +4,24 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.heading {
+    display: flex;
+}
+
 h1 {
     text-align: center;
 }
+
 .blocks {
     display: flex;
 }
 
 .block {
-    flex : 1;
+    flex: 1;
     border: 1px solid grey;
-    padding:  1em;
-    margin:  1em;
+    padding: 1em;
+    margin: 1em;
     border-radius: 1em;
-}
-
-.heading {
-    display: flex;
 }
 
 .message {
@@ -29,45 +30,11 @@ h1 {
     margin-bottom: 1em;
     border: 1px;
     border-radius: 0.5em;
-    
 }
+
 .input>label {
     display: inline-block;
     width: 10em;
-    padding: 0.5em;
-    font-weight: bold;
-    font-family: cursive;
-}
-
-.input>input[type="text"] {
-    padding: 0.5em;
-    margin: 0.5em;   
-}
-
-.widget {
-    flex: 1;
-    border: 1px solid rgb(122, 228, 255);
-    margin: 1em;
-    padding: 1em;
-    border-radius: 0.5em;
-}
-
-.widgets {
-    display: flex;
-}
-
-.widgets-2 {
-    display: flex;
-}
-
-body {
-    background-color: grey;
-}
-
-
-.input>label {
-    display: inline-block;
-    width: 15em;
     padding: 0.5em;
     font-weight: bold;
     font-family: cursive;
@@ -87,11 +54,19 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-
 .widgets {
     display: flex;
 }
 
-.widgets-2 {
-    display: flex;
+.input>label {
+    display: inline-block;
+    width: 15em;
+    padding: 0.5em;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+.input>input[type="text"] {
+    padding: 0.5em;
+    margin: 0.5em;
 }
