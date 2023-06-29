@@ -1,9 +1,12 @@
 body {
     background-color: grey;
-    color: blue;
+    color: rgb(10, 59, 10);
     font-family: Arial, Helvetica, sans-serif;
 }
 
+h1 {
+    text-align: center;
+}
 .blocks {
     display: flex;
 }
@@ -21,11 +24,13 @@ body {
 }
 
 .message {
-    background-color: bisque;
     padding: 1em;
+    background-color: rgb(171, 240, 128);
     margin-bottom: 1em;
+    border: 1px;
+    border-radius: 0.5em;
+    
 }
-
 .input>label {
     display: inline-block;
     width: 10em;
@@ -55,9 +60,38 @@ body {
     display: flex;
 }
 
-@media (max-width: 768px) {
-    .mobile-style {
-      /* Styles for mobile devices */
-    }
-  }
-  
+body {
+    background-color: grey;
+}
+
+
+.input>label {
+    display: inline-block;
+    width: 15em;
+    padding: 0.5em;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+.input>input[type="text"] {
+    padding: 0.5em;
+    margin: 0.5em;
+}
+
+.widget {
+    flex: 1;
+    border: 1px solid rgb(122, 228, 255);
+    margin: 1em;
+    padding: 1em;
+    border-radius: 0.5em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+.widgets {
+    display: flex;
+}
+
+.widgets-2 {
+    display: flex;
+}

@@ -2,97 +2,41 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Widgets</title>
-    <script src="greet.js"></script>
-    <script src="greet-widget.js" defer></script>
-    <script src="word-game.js"></script>
-    <script src="wordGame-widget.js"></script>
-    <script src="enough-airtime.js"></script>
-    <script src="enough-airtime-widget.js"></script>
-    <script src="totalphonebill.js"></script>
-    <script src="totalphonebill-widget.js"></script>
-    <script src="https://unpkg.com/alpinejs" defer></script>
-    <script>console.log(greet("Nkosingiphile"))</script>
-
-    <style>
-        body {
-            background-color: grey;
-        }
-
-        .widgets-container {
-            display: flex;
-            /* Use flexbox layout */
-        }
-
-        .widget {
-            flex: 1;
-            /* Allow widgets to grow and shrink equally to fill the container */
-        }
-
-        .widget:last-child {
-            margin-right: 0;
-            /* Remove right margin for the last widget */
-        }
-
-        .message {
-            padding: 1em;
-            background-color: rgb(171, 240, 128);
-            margin-bottom: 1em;
-        }
-
-        .input>label {
-            display: inline-block;
-            width: 15em;
-            padding: 0.5em;
-            font-weight: bold;
-            font-family: cursive;
-        }
-
-        .input>input[type="text"] {
-            padding: 0.5em;
-            margin: 0.5em;
-        }
-
-        .widget {
-            flex: 1;
-            border: 1px solid rgb(122, 228, 255);
-            margin: 1em;
-            padding: 1em;
-            border-radius: 0.5em;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-
-        .widgets {
-            display: flex;
-        }
-
-        .widgets-2 {
-            display: flex;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Widgets</title>
+  <script src="greet.js"></script>
+  <script src="greet-widget.js" defer></script>
+  <script src="word-game.js"></script>
+  <script src="wordGame-widget.js"></script>
+  <script src="enough-airtime.js"></script>
+  <script src="totalphonebill.js"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+  <script>console.log(greet("Nkosingiphile"))</script>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>My first experience with bootcamp function Widgets</h1>
-    <div class="widgets-container">
-        <div x-data="{ isMobile: false }" x-bind:class="{ 'mobile-style': isMobile }">
-            <h2>Greet Me</h2>
-            <div class="message block" x-data="{ name: '', greeting: '' }">
-                <label for="name">Greet this name</label>
-                <input type="text" x-model="name" placeholder="Enter your name">
-                <button x-on:click="greeting = greet(name)">Greet</button>
-                <p x-text="greeting"></p>
-                <button x-on:click="greeting = ''">Clear</button>
-            </div>
 
-            <div class="widget" x-data="wordGameWidget">
-                <h2>Word game Widget</h2>
+  <h1>My first experience with bootcamp function Widgets</h1>
 
-                <div class="widget" x-data="{
+    <div class="blocks">
+      <div class="widget" x-data="{ isMobile: false }" x-bind:class="{ 'mobile-style': isMobile }">
+        <h2>Greet Me</h2>
+        <div class="widget block" x-data="{ name: '', greeting: '' }">
+          <label for="name">Greet this name</label>
+          <input type="text" x-model="name" placeholder="Enter your name">
+          <button x-on:click="greeting = greet(name)">Greet</button>
+          <p class="message" x-text="greeting"></p>
+          <button x-on:click="greeting = ''">Clear</button>
+        </div>
+      </div>
+
+      <div class="widget block" x-data="wordGameWidget">
+        <h2>Word game Widget</h2>
+
+        <div class="widget" x-data="{
                         sentence: '',
                         longWord: '',
                         shortWord: '',
@@ -118,93 +62,55 @@
                           this.sumOfLetters = 'Sum of letters: ' + totalLetters;
                         }
                       }">
+          <div>
+            <label for="words">Sentence: </label>
+            <input type="text" x-model="sentence" id="words">
+          </div>
 
-                    <h2>Word Game Widget</h2>
-                    <div>
-                        <label for="words">Sentence: </label>
-                        <input type="text" x-model="sentence" id="words">
-                    </div>
+          <div>
+            <button x-on:click="solve()">Solve</button>
+          </div>
 
-                    <div>
-                        <button x-on:click="solve()">Solve</button>
-                    </div>
-
-                    <div x-show="longWord.length > 0" class="message" x-text="longWord">Longest word...</div>
-                    <div x-show="shortWord.length > 0" class="message" x-text="shortWord">Shortest word...</div>
-                    <div x-show="sumOfLetters.length > 0" class="message" x-text="sumOfLetters">Sum of letters...</div>
-                </div>
-            </div>
-
-            <div class="widget block" x-data="enoughAirtimeWidget">
-
-                <h2>Enough Airtime</h2>
-
-                <div x-data="{
-                        projectedUsage: '',
-                        availAirtime: 0,
-                        remainingAirtime: 0,
-                        calculateRemainingAirtime() {
-                          let usage = this.projectedUsage.split(',');
-                          let totalUsage = 0;
-                        
-                          for (let i = 0; i < usage.length; i++) {
-                            if (usage[i] === 'call') {
-                              totalUsage += 1.88;
-                            } else if (usage[i] === 'sms') {
-                              totalUsage += 0.75;
-                            } else if (usage[i] === 'data') {
-                              totalUsage += 12;
-                            }
-                          }
-                          
-                          this.remainingAirtime = this.availAirtime - totalUsage;
-                        }
-                      }">
-                    <input type="text" x-model="projectedUsage" placeholder="Projected Usage (comma-separated)">
-                    <input type="number" x-model="availAirtime" placeholder="Available Airtime">
-                    <button x-on:click="calculateRemainingAirtime()">Calculate</button>
-                    <p>Remaining Airtime: <span
-                            x-text="remainingAirtime > 0 ? 'R' + remainingAirtime.toFixed(2) : 'R0.00'"></span></p>
-                </div>
-            </div>
-
-            <div class="widgets-2">
-                <div class="widget" x-data="{
-                  statement: '',
-                  billMessage: '',
-                  calculateBill() {
-                    const phoneUsage = this.statement.split(',');
-                    let totalBill = 0;
-              
-                    for (let i = 0; i < phoneUsage.length; i++) {
-                      if (phoneUsage[i] === 'call') {
-                        totalBill += 1.88;
-                      } else if (phoneUsage[i] === 'sms') {
-                        totalBill += 0.75;
-                      } else if (phoneUsage[i] === 'data') {
-                        totalBill += 12;
-                      }
-                    }
-              
-                    this.billMessage = 'Total phone bill: R' + totalBill.toFixed(2);
-                  }
-                }">
-                    <h2>Total Phone Bill</h2>
-                    <div class="input">
-                        <label for="bill">Phone usage: </label>
-                        <input type="text" x-model="statement" id="bill">
-                    </div>
-                    <div>
-                        <button x-on:click="calculateBill">Calculate total bill</button>
-                    </div>
-                    <div x-show="billMessage.length > 0" class="message" x-text="billMessage"></div>
-                </div>
-            </div>
-
+          <div x-show="longWord.length > 0" class="message" x-text="longWord">Longest word...</div>
+          <div x-show="shortWord.length > 0" class="message" x-text="shortWord">Shortest word...</div>
+          <div x-show="sumOfLetters.length > 0" class="message" x-text="sumOfLetters">Sum of letters...</div>
         </div>
 
+      </div>
     </div>
-
+    <br>
+    <div class="blocks">
+    <div class="widget">
+      <h2>Enough Airtime</h2>
+      <div class="widget" x-data="{
+           projectedUsage:'',
+           availAirtime: '',
+           remainingAirtime:''}">
+        <label for="projected-usage">Projected Usage:</label>
+        <input type="text" id="projected-usage" x-model="projectedUsage" placeholder="e.g call,sms,data">
+        <br>
+        <label for="avail-airtime">Available Airtime:</label>
+        <input type="number" id="avail-airtime" x-model="availAirtime" placeholder="5.00">
+        <br>
+        <button x-on:click="remainingAirtime = calculateRemainingAirtime(projectedUsage, availAirtime)">
+          Calculate
+        </button>
+        <p class="message" x-text="'Remaining Airtime: ' + remainingAirtime"></p>
+      </div>
+    </div>
+    <br>
+    <div class="widget">
+      <h2>Total Phone Bill</h2>
+      <div class="widget">
+        <label for="billList">Calls and SMSes</label>
+        <input type="text" id="billList" placeholder="Enter phone string">
+        <button onclick="totalPhoneBill()">Enter</button>
+        <br>
+        <br>
+        <div class="message"id="totalBill"></div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
